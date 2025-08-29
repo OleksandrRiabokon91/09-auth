@@ -20,3 +20,9 @@ export const tagOptions: NoteTag[] = [
   "Meeting",
   "Shopping",
 ];
+
+export type User = {
+  email: string;
+  username: string;
+  avatar: string;
+};
