@@ -1,11 +1,11 @@
 "use client";
 
 import css from "./SignUpPage.module.css";
-import { register } from "@/lib/clientApi";
+import { register } from "@/lib/api/clientApi";
 import { useRouter } from "next/navigation";
 import { useAuthStore } from "@/lib/store/authStore";
 import { useState } from "react";
-import { AuthReqestData } from "@/lib/api";
+import { AuthReqestData } from "@/lib/api/api";
 
 const SignUp = () => {
   const router = useRouter();

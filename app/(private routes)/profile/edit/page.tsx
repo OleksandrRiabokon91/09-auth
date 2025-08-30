@@ -3,7 +3,7 @@
 import css from "./EditProfilePage.module.css";
 import { useEffect, useState } from "react";
 import { useAuthStore } from "@/lib/store/authStore";
-import { getMe, updateUser } from "@/lib/clientApi";
+import { getMe, updateUser } from "@/lib/api/clientApi";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { User } from "@/types/note";

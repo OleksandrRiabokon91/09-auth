@@ -5,8 +5,8 @@ import {
   QueryClient,
 } from "@tanstack/react-query";
 import type { Metadata } from "next";
-import { getSingleNoteServer } from "@/lib/serverApi";
-import NoteDetailsClient from "@/app/(private-routes)/notes/[id]/NoteDetails.client";
+import { getSingleNoteServer } from "@/lib/api/serverApi";
+import NoteDetailsClient from "@/app/(private routes)/notes/[id]/NoteDetails.client";
 
 type Props = {
   params: Promise<{ id: string }>;

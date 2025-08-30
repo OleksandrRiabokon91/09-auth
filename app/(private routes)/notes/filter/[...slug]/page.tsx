@@ -1,8 +1,8 @@
 // app/notes/filter/[...slug]/page.tsx
 import { Metadata } from "next";
-import { fetchNotesServer } from "@/lib/serverApi";
+import { fetchNotesServer } from "@/lib/api/serverApi";
 import { tagOptions, Tag } from "@/types/note";
-import NotesClient from "@/app/(private-routes)/notes/filter/[...slug]/Notes.client";
+import NotesClient from "@/app/(private routes)/notes/filter/[...slug]/Notes.client";
 
 type Props = { params: Promise<{ slug?: string[] }> };
 

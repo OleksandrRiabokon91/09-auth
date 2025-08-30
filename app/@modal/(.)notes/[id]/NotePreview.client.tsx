@@ -3,7 +3,7 @@
 import { useParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
-import { getSingleNote } from "@/lib/clientApi";
+import { getSingleNote } from "@/lib/api/clientApi";
 import Modal from "@/components/Modal/Modal";
 import Loader from "@/components/Loader/Loader";
 import ErrorMessage from "@/components/ErrorMessage/ErrorMessage";
