@@ -1,12 +1,12 @@
 // app/notes/filter/[...slug]/Notes.client.tsx
 "use client";
-import css from "@/app/notes/filter/[...slug]/Notes.client.module.css";
+import css from "./Notes.client.module.css";
 import { useQuery, keepPreviousData } from "@tanstack/react-query";
 import { useState, useEffect } from "react";
 import { useDebounce } from "use-debounce";
 import { Tag } from "@/types/note";
 import Link from "next/link";
-import fetchNotes from "@/lib/api";
+import { fetchNotes } from "@/lib/clientApi";
 import type { FetchNotesResponse } from "@/lib/api";
 import NoteList from "@/components/NoteList/NoteList";
 import Pagination from "@/components/Pagination/Pagination";

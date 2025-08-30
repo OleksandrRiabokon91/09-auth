@@ -1,11 +1,38 @@
 "use client";
+
 import css from "./SignUpPage.module.css";
-import { AuthReqestData, register } from "@/lib/clientApi";
-const SignIn = () => {
+import { register } from "@/lib/clientApi";
+import { useRouter } from "next/navigation";
+import { useAuthStore } from "@/lib/store/authStore";
+import { useState } from "react";
+import { AuthReqestData } from "@/lib/api";
+
+const SignUp = () => {
+  const router = useRouter();
+  const setAuth = useAuthStore((state) => state.setAuth);
+  const [error, setError] = useState<string | null>(null);
+
   const handleRegister = async (formData: FormData) => {
-    const data = Object.fromEntries(formData) as AuthReqestData;
-    const res = await register(data);
-    console.log(res);
+    setError(null);
+    try {
+      const data = Object.fromEntries(formData) as AuthReqestData;
+      const user = await register(data);
+      console.log(user);
+
+      if (user) {
+        setAuth(user);
+        router.push("/profile");
+      }
+    } catch (err: unknown) {
+      console.error("Register error:", err);
+      if (err instanceof Error) {
+        setError(err.message);
+      } else if (typeof err === "string") {
+        setError(err);
+      } else {
+        setError("Registration failed");
+      }
+    }
   };
 
   return (
@@ -40,9 +67,10 @@ const SignIn = () => {
           </button>
         </div>
 
-        <p className={css.error}>Error</p>
+        {error && <p className={css.error}>{error}</p>}
       </form>
     </main>
   );
 };
-export default SignIn;
+
+export default SignUp;

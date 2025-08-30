@@ -6,7 +6,17 @@ export interface Note {
   updatedAt: string;
   tag: Tag;
 }
-export type Tag = "Todo" | "Work" | "Personal" | "Meeting" | "Shopping";
+export type Tag =
+  | "Work"
+  | "Personal"
+  | "Meeting"
+  | "Shopping"
+  | "Ideas"
+  | "Travel"
+  | "Finance"
+  | "Health"
+  | "Important"
+  | "Todo";
 export type NoteTag = Note["tag"];
 export interface NewNote {
   title: string;
@@ -14,11 +24,16 @@ export interface NewNote {
   tag: Tag;
 }
 export const tagOptions: NoteTag[] = [
-  "Todo",
   "Work",
   "Personal",
   "Meeting",
   "Shopping",
+  "Ideas",
+  "Travel",
+  "Finance",
+  "Health",
+  "Important",
+  "Todo",
 ];
 
 export type User = {

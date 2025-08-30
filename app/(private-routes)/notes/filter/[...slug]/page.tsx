@@ -1,8 +1,8 @@
 // app/notes/filter/[...slug]/page.tsx
 import { Metadata } from "next";
-import fetchNotes from "@/lib/api";
+import { fetchNotesServer } from "@/lib/serverApi";
 import { tagOptions, Tag } from "@/types/note";
-import NotesClient from "@/app/notes/filter/[...slug]/Notes.client";
+import NotesClient from "@/app/(private-routes)/notes/filter/[...slug]/Notes.client";
 
 type Props = { params: Promise<{ slug?: string[] }> };
 
@@ -39,7 +39,7 @@ export default async function NotesPage({ params }: Props) {
   const tag: Tag | undefined = tagOptions.includes(maybeTag as Tag)
     ? (maybeTag as Tag)
     : undefined;
-  const data = await fetchNotes({
+  const data = await fetchNotesServer({
     page: 1,
     search: "",
     tag,

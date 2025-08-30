@@ -17,16 +17,10 @@ export async function GET(request: Request, { params }: Props) {
         Cookie: cookieStore.toString(),
       },
     });
-    // console.log(
-    //   `function GET res ${res} : res.data${res.data}, atatus ${res.status}`
-    // );
+   
     return NextResponse.json(res.data, { status: res.status });
   } catch (error) {
-    // const resErr = error as ApiError;
-    // return NextResponse.json(
-    //   { error: resErr.response?.data?.error ?? resErr.message },
-    //   { status: resErr.status }
-    // );
+   
     if (isAxiosError(error)) {
       logErrorResponse(error.response?.data);
       return NextResponse.json(

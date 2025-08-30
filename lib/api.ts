@@ -26,3 +26,10 @@ export interface NewNoteData {
   content?: string;
   tag: NoteTag;
 }
+export interface CheckSessionResponse {
+  success: boolean;
+}
+export type AuthReqestData = {
+  email: string;
+  password: string;
+};
