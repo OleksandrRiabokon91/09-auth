@@ -10,7 +10,7 @@ import { AuthReqestData } from "@/lib/api";
 const Login = () => {
   const router = useRouter();
   const setAuth = useAuthStore((state) => state.setAuth);
-  // router.refresh();
+
   const [error, setError] = useState<string | null>(null);
 
   const handleLogin = async (formData: FormData) => {
@@ -18,7 +18,6 @@ const Login = () => {
     try {
       const data = Object.fromEntries(formData) as AuthReqestData;
       const user = await login(data);
-      console.log("user:", user);
 
       if (user) {
         setAuth(user);

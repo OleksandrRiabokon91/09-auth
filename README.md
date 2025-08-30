@@ -1,7 +1,7 @@
 Developer: Oleksandr Riabokon
 email: riabokon.oleksandr@gmail.com
 Bekend:
-https://notehub-public.goit.study/api/docs/#/Auth/createAuthToken
+https://notehub-api.goit.study/docs
 
 List comands to install:
 

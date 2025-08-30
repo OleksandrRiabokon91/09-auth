@@ -4,8 +4,8 @@ import axios from "axios";
 import type { Note, NoteTag } from "@/types/note";
 
 export const api = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL + "/api", // берём из .env
-  withCredentials: true, // куки автоматически отправляются
+  baseURL: process.env.NEXT_PUBLIC_API_URL + "/api",
+  withCredentials: true,
 });
 
 export interface FetchNotesResponse {
