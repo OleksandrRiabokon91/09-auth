@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 };
 
 export default async function Profile() {
-  const { data } = await getMeServer();
+  const user = await getMeServer();
   return (
     <main className={css.mainContent}>
       <div className={css.profileCard}>
@@ -35,8 +35,8 @@ export default async function Profile() {
         </div>
         <div className={css.avatarWrapper}>
           <Image
-            src={data.avatar}
-            alt={`${data.username}'s avatar`}
+            src={user.avatar}
+            alt={`${user.username}'s avatar`}
             width={120}
             height={120}
             className={css.avatar}
@@ -44,8 +44,8 @@ export default async function Profile() {
           />
         </div>
         <div className={css.profileInfo}>
-          <p>Username: {data.username}</p>
-          <p>Email: {data.email}</p>
+          <p>Username: {user.username}</p>
+          <p>Email: {user.email}</p>
         </div>
       </div>
     </main>

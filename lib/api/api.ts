@@ -29,7 +29,7 @@ export interface NewNoteData {
 export interface CheckSessionResponse {
   success: boolean;
 }
-export type AuthReqestData = {
+export type AuthRequestData = {
   email: string;
   password: string;
 };

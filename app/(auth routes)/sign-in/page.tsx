@@ -5,7 +5,7 @@ import css from "./SignInPage.module.css";
 import { useRouter } from "next/navigation";
 import { useAuthStore } from "@/lib/store/authStore";
 import { useState } from "react";
-import { AuthReqestData } from "@/lib/api/api";
+import { AuthRequestData } from "@/lib/api/api";
 
 const Login = () => {
   const router = useRouter();
@@ -16,7 +16,7 @@ const Login = () => {
   const handleLogin = async (formData: FormData) => {
     setError(null);
     try {
-      const data = Object.fromEntries(formData) as AuthReqestData;
+      const data = Object.fromEntries(formData) as AuthRequestData;
       const user = await login(data);
 
       if (user) {

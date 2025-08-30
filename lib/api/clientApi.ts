@@ -4,15 +4,15 @@
 import { api, NotesParams, FetchNotesResponse, NewNoteData } from "./api";
 import { Note } from "@/types/note";
 import { User } from "@/types/user";
-import type { AuthReqestData, CheckSessionResponse } from "./api";
+import type { AuthRequestData, CheckSessionResponse } from "./api";
 
 // ================
-export const login = async (peyload: AuthReqestData) => {
-  const res = await api.post<User>(`/auth/login`, peyload);
+export const login = async (payload: AuthRequestData) => {
+  const res = await api.post<User>(`/auth/login`, payload);
   return res.data;
 };
-export const register = async (peyload: AuthReqestData) => {
-  const res = await api.post<User>(`/auth/register`, peyload);
+export const register = async (payload: AuthRequestData) => {
+  const res = await api.post<User>(`/auth/register`, payload);
   return res.data;
 };
 export const logout = async () => {
@@ -25,11 +25,11 @@ export const checkSession = async () => {
   return res.data.success;
 };
 export const getMe = async () => {
-  const res = await api.get<User>(`/user/me`);
+  const res = await api.get<User>(`/users/me`);
   return res.data;
 };
 export const updateUser = async (payload: { username: string }) => {
-  const res = await api.patch<User>("/user/me", payload);
+  const res = await api.patch<User>("/users/me", payload);
   return res.data;
 };
 // ================

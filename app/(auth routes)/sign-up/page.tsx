@@ -5,7 +5,7 @@ import { register } from "@/lib/api/clientApi";
 import { useRouter } from "next/navigation";
 import { useAuthStore } from "@/lib/store/authStore";
 import { useState } from "react";
-import { AuthReqestData } from "@/lib/api/api";
+import { AuthRequestData } from "@/lib/api/api";
 
 const SignUp = () => {
   const router = useRouter();
@@ -15,7 +15,7 @@ const SignUp = () => {
   const handleRegister = async (formData: FormData) => {
     setError(null);
     try {
-      const data = Object.fromEntries(formData) as AuthReqestData;
+      const data = Object.fromEntries(formData) as AuthRequestData;
       const user = await register(data);
       console.log(user);
 

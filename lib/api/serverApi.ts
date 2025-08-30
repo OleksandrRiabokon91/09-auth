@@ -7,11 +7,10 @@ import {
 } from "./api";
 import { cookies } from "next/headers";
 import { Note } from "@/types/note";
-import axios from "axios";
 
 export const checkSessionServer = async () => {
   const cookiesData = await cookies();
-  const res = await axios.get<CheckSessionResponse>(`/auth/session`, {
+  const res = await api.get<CheckSessionResponse>(`/auth/session`, {
     headers: {
       Cookie: cookiesData.toString(),
     },
@@ -32,7 +31,7 @@ export const fetchNotesServer = async ({
   if (search) params.search = search;
   if (tag) params.tag = tag;
 
-  const res = await axios.get<FetchNotesResponse>("/notes", {
+  const res = await api.get<FetchNotesResponse>("/notes", {
     params,
     headers: {
       Cookie: cookiesData.toString(),
@@ -43,17 +42,17 @@ export const fetchNotesServer = async ({
 
 export const getMeServer = async () => {
   const cookiesData = await cookies();
-  const res = await axios.get<User>(`/user/me`, {
+  const res = await api.get<User>(`/users/me`, {
     headers: {
       Cookie: cookiesData.toString(),
     },
   });
-  return res;
+  return res.data;
 };
 
 export const getSingleNoteServer = async (id: string): Promise<Note> => {
   const cookiesData = await cookies();
-  const res = await axios.get<Note>(`/notes/${id}`, {
+  const res = await api.get<Note>(`/notes/${id}`, {
     headers: {
       Cookie: cookiesData.toString(),
     },
